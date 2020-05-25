@@ -24,8 +24,6 @@
 
               <!-- urls for the nav bar -->
               <a href="{% url 'home:homePage' %}" class="nav-item nav-link {% if additional_context.a == 'home' %} active {% endif %}">Home</a>
-              <a href="{% url 'message:index' %}" class="nav-item nav-link {% if additional_context.a == 'posts' %} active {% endif %}">message</a>
-              <a href="{% url 'polls:index' %}" class="nav-item nav-link {% if additional_context.a == 'polling' %} active {% endif %}">Polls</a>
 
               <div class="nav-item dropdown">
                   <a href="#" class="nav-link dropdown-toggle {% if additional_context.a == 'compvas' %} active {% endif %}" data-toggle="dropdown">Compvas</a>

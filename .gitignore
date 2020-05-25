@@ -1,2 +1,3 @@
 mysite/mysite/.env
 mysite/compvas/.env
+mysite/db.sqlite3

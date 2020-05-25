@@ -39,10 +39,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django_extensions',
-    'message.apps.MessageConfig',
     'compvas.apps.CompvasConfig',
     'home.apps.HomeConfig',
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
