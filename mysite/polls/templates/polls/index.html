@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="fluid-container">
+
+    <div class="p-3 jumbotron mx-auto" style="width: 50%;">
+      <h2>Vote on a Question</h2>
+
+      {% if question_list %}
+
+          {% for question in question_list %}
+
+              <div class="card m-1">
+                <div class="card-header">
+                  {{ question.question_text }} by {{ question.user }}
+                </div>
+                <div class="card-body">
+                  <a class="btn btn-primary" href="{% url 'polls:detail' question.id %}">Vote</a>
+                  <a class="btn btn-primary" href="{% url 'polls:results' question.id %}">Results</a>
+
+                  {% if question.user == request.user %}
+                    <a class="btn btn-danger float-right" href="{% url 'polls:delete' question.id %}">delete</a>
+                  {% endif %}
+                </div>
+              </div>
+
+          {% endfor %}
+
+      {% else %}
+        <p>There are no polls <p>
+      {% endif %}
+    </div>
+
+
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <div class="card mx-auto" style="width: 50%;">
+      <div class="card-header">
+        <h2>Make a new question</h2>
+      </div>
+      <div class="card-body">
+
+
+        <form class="create" action="{% url 'polls:new_question' %}" method="post">
+          {% csrf_token %}
+
+          <div class="form-group">
+            <label for="question_name">What do you want to ask</label><br>
+            <input type="text" name="question_name" id="question_name" placeholder="What is you favoret colour"><br>
+          </div>
+
+          <div class="form-group">
+            <label for="option">Option</label><br>
+            <input type="text" id="option" name="option1" placeholder="option"><br>
+            <input type="text" id="option" name="option2" placeholder="option"><br>
+            <input type="text" id="option" name="option3" placeholder="option">
+          </div>
+
+          <input class='btn btn-success' type="submit" value="create">
+
+        </form>
+
+      </div>
+    </div>
+
+</div>
+{% endblock %}
