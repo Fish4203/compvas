@@ -1,5 +1,6 @@
 # compvast
-
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ 
 ## About
 This is a simple site that keeps track of most functions of canvas and compass. 
 
